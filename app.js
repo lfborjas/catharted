@@ -11,10 +11,6 @@ app.set('view engine', 'hamljs');
 // Serve statics from ./static
 app.use(connect.staticProvider(__dirname + '/static'));
 
-//trying out the utils:
-sys.puts("trim: "+'         a         '.strip());
-sys.puts("md5: "+'         a         '.md5());
-
 //the number of messages we'll display before utterly forgetting
 var BACKLOG = 100;
 //the limit length of a message
@@ -28,13 +24,13 @@ var channel = new function () {
   this.appendMessage = function (text) {
     //sanitize the message: strip it and delete any urls, then calculate md5 so it's unique
 	ctext= text
-        .strip()
+        .strip
         .replace(/((https?|ftp|gopher|telnet|file|notes|ms-help):((\/\/)|(\\\\))+[\w\d:#@%\/;$()~_?\+-=\\\.&]*)|(\s+)/g,'')
         .substring(0, MESSAGE_LIMIT)
     
     var m = {text: ctext, timestamp: (new Date()).getTime()};
     //don't add duplicates:
-    var hsh = ctext.md5();
+    var hsh = ctext.md5;
     if(!messages.hasOwnProperty(hsh)){
         messages[hsh] = m;
     }
