@@ -1,0 +1,22 @@
+!!!
+%html
+%head
+  %title Miitup, coming soon
+  %link{rel: 'stylesheet/css', href: '/base.css' }
+  %script{type: "text/javascript",src: "/jquery.js"}
+  %script{type: "text/javascript",src: "/client.js"}
+%body
+  %div#topmenu
+    %div branding
+      %h1 Catharted info
+      %span.motto Get it off your chest
+    %div links
+      %a{href: "/about"} About
+  %div#main
+      %form{method: 'post'}
+        %label{ for: "rant"} What's really on your mind? 
+        %input#id_rant{ type: "textarea", cols: 40, rows: 4, name:"rant"}
+        %input#send_rant{ type: 'submit', value: 'Shout!'}
+      %div#rant-container
+        %ul#rants
+        

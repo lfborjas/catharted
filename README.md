@@ -1,4 +1,4 @@
-rant: just say it
+catharted info: just say it
 =================
 
 An experiment on node.js and minimalistic programming (trying to use only the necessary things client-side, and maybe even server side). 
@@ -7,8 +7,9 @@ Just write a 280 character rant and it will go away after a while. Full anonymit
 
 Dependencies for production
 ---------------------------
-* expressjs (`npm install expressjs`)
-* hamljs (`npm install hamljs`)
+* expressjs (`npm install expressjs`) : the development framework
+* hamljs (`npm install hamljs`) : for template rendering. Supposedly faster than haml-js
+* ext (`npm install ext`) : various utilities for javascript
 
 Dependencies for development
 ----------------------------
