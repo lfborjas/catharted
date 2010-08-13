@@ -75,8 +75,12 @@ app.get('/', function(req,res){
     res.render('index', {layout: false});
 });
 
+app.get('/about', function(req,res){
+    res.render('about', {layout: false});
+});
+
 //ajax function: get latest rants
-app.get('/rants/', function(req,res){
+app.get('/rants', function(req,res){
    var since = req.param('since');
    channel.query(since, function (messages) {
         if (session) session.poke();

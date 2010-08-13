@@ -1,10 +1,14 @@
 !!!
-%html
+%html{'xmlns': "http://www.w3.org/1999/xhtml", 'xml:lang': "en", 'lang': "en"}
 %head
-  %title Miitup, coming soon
-  %link{rel: 'stylesheet/css', href: '/base.css' }
-  %script{type: "text/javascript",src: "/jquery.js"}
-  %script{type: "text/javascript",src: "/client.js"}
+  %meta{'http-equiv': "Content-Type", 'content': "text/html;charset=UTF-8"}
+  %meta{'http-equiv':"Content-Style-Type", 'content' : "text/css" }
+  %meta{'name': "description", "content": "Get some catharsis: completely anonymous. Completely oblivious. Say what you want"}
+  %title Catharted info: get it off your chest with no regrets 
+  %link{ 'rel' : "icon", 'href': "/images/favicon.ico", 'type': "image/x-icon" }
+  %link{"rel" : "stylesheet", "type": "text/css", "href" : "/stylesheets/base.css", "media" : "screen" }
+  %script{type: "text/javascript",src: "/scripts/jquery.js"}
+  %script{type: "text/javascript",src: "/scripts/client.js"}
 %body
   %div#topmenu
     %div branding
@@ -15,8 +19,8 @@
   %div#main
       %form{method: 'post'}
         %label{ for: "rant"} What's really on your mind? 
-        %input#id_rant{ type: "textarea", cols: 40, rows: 4, name:"rant"}
-        %input#send_rant{ type: 'submit', value: 'Shout!'}
+        %input#id_rant{ type: "textarea", cols: 40, rows: 4, name: "rant"}
+        %input#send_rant{ type: 'submit', value: 'Gruff!'}
       %div#rant-container
         %ul#rants
         
