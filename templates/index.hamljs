@@ -11,16 +11,29 @@
   %script{type: "text/javascript",src: "/scripts/client.js"}
 %body
   %div#topmenu
-    %div branding
+    %div#branding
       %h1 Catharted info
-      %span.motto Get it off your chest
-    %div links
+    %div#links
       %a{href: "/about"} About
   %div#main
-      %form{method: 'post'}
+    %form{method: 'post'}
+      %div#prompt
         %label{ for: "rant"} What's really on your mind? 
-        %input#id_rant{ type: "textarea", cols: 40, rows: 4, name: "rant"}
-        %input#send_rant{ type: 'submit', value: 'Gruff!'}
-      %div#rant-container
-        %ul#rants
-        
+        %span#counter 280
+      %textarea#id_rant{cols: 40, rows: 3, name: "rant"}
+      %input#send_rant{ type: 'submit', value: 'Gruff!'}
+    %div#rant-container
+      %ul#rants
+        %li.rant._1th
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        %li.rant._30th
+          This is an 30th rant
+        %li.rant._50th
+          This is an 50th rant
+        %li.rant._80th
+          This is an 80th rant
+        %li.rant._100th
+          This is an 100th rant
+

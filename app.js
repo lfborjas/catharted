@@ -88,4 +88,5 @@ app.get('/rants', function(req,res){
    });
 });
 
+app.listen(8000);
 //TODO: a POST for rants, so people can rant via API

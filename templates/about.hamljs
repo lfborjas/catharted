@@ -9,13 +9,12 @@
   %link{"rel" : "stylesheet", "type": "text/css", "href" : "/stylesheets/base.css", "media" : "screen" }
 %body
   %div#topmenu
-    %div branding
+    %div#branding
       %h1 Catharted info
-      %span.motto Get it off your chest
-    %div links
+    %div#links
       %a{href: "/"} Home
   %div#main
-    %h2 Because words are meant to be carried away by the wind.
+    %h2 Because words were meant to be carried away by the wind.
     %p.about
       Catharted info is a place created for you to say those things you can't say in twitter or facebook
       or wherever. Here you can say what's really on your mind and also read what other people are bluntly saying.
@@ -24,9 +23,8 @@
       reached, old gruffs will be discarded and lost forever. You have 280 characters, don't bother wasting
       them with urls: they will be supressed. Also, to avoid flooding the timeline with lots of the same, duplicated
       rants will be eliminated as well.
-    %p.about  
+    %p.about
       So there you have it: a place where you can come
       and scream and maybe even forget your problems while you read what others say and no one will ever hold it against
       you.
 
-      
