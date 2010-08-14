@@ -79,11 +79,13 @@ app.get('/about', function(req,res){
     res.render('about', {layout: false});
 });
 
+/*app.get('/feedback', function(req,res){
+    res.render('feedback', {layout: false});
+});*/
 //ajax function: get latest rants
 app.get('/rants', function(req,res){
    var since = req.param('since');
    channel.query(since, function (messages) {
-        if (session) session.poke();
         res.send({ messages: messages });
    });
 });

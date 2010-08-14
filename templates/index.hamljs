@@ -8,7 +8,8 @@
   %link{ 'rel' : "icon", 'href': "/images/favicon.ico", 'type': "image/x-icon" }
   %link{"rel" : "stylesheet", "type": "text/css", "href" : "/stylesheets/base.css", "media" : "screen" }
   %script{type: "text/javascript",src: "/scripts/jquery.js"}
-  %script{type: "text/javascript",src: "/scripts/client.js"}
+  %script{type: "text/javascript",src: "/scripts/client.dev.js"}
+  %script{type: "text/javascript",src: "/scripts/navi.dev.js"}
 %body
   %div#topmenu
     %div#branding
@@ -21,19 +22,20 @@
         %label{ for: "rant"} What's really on your mind? 
         %span#counter 280
       %textarea#id_rant{cols: 40, rows: 3, name: "rant"}
-      %input#send_rant{ type: 'submit', value: 'Gruff!'}
+      %div#controls
+        %input#send_rant{ type: 'submit', value: 'Gruff!' , disabled : "disabled"}
     %div#rant-container
       %ul#rants
-        %li.rant._1th
+        %li.rant._1th.keynav.withoutfocus
           aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
           aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
           aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        %li.rant._30th
+        %li.rant._30thy.keynav.withoutfocus
           This is an 30th rant
-        %li.rant._50th
+        %li.rant._50th.keynav.withoutfocus
           This is an 50th rant
-        %li.rant._80th
+        %li.rant._80th.keynav.withoutfocus
           This is an 80th rant
-        %li.rant._100th
+        %li.rant._100th.keynav.withoutfocus
           This is an 100th rant
 

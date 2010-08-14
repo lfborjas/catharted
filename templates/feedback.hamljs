@@ -1,0 +1,17 @@
+!!!
+%html{'xmlns': "http://www.w3.org/1999/xhtml", 'xml:lang': "en", 'lang': "en"}
+%head
+  %meta{'http-equiv': "Content-Type", 'content': "text/html;charset=UTF-8"}
+  %meta{'http-equiv':"Content-Style-Type", 'content' : "text/css" }
+  %meta{'name': "description", "content": "Get some catharsis: completely anonymous. Completely oblivious. Say what you want"}
+  %title Feedback: Catharted info: get it off your chest with no regrets 
+  %link{ 'rel' : "icon", 'href': "/images/favicon.ico", 'type': "image/x-icon" }
+  %script{ "type": "text/javascript", "src": "/scripts/satisfaction.dev.js"}
+  %link{"rel" : "stylesheet", "type": "text/css", "href" : "/stylesheets/base.css", "media" : "screen" }
+%body
+  %div#topmenu
+    %div#branding
+      %h1 Catharted info
+    %div#links
+      %a{href: "/"} Home
+  %div#main
