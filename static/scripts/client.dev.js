@@ -1,5 +1,5 @@
 var last_message_time = 1;
-
+var RANT_LIMIT = 5;
 function updateCounter(e){
     var _input = $('#id_rant');
     var _counter = $('#counter');
@@ -27,8 +27,14 @@ function longPoll(data){
             if(message.timestamp > last_message_time){
                 last_message_time = message.timestamp;
             } 
-            $("#rants").prepend("<li class='rant navkey withoutfocus'>"+message.text+"</li>");
+            $("#rants").prepend("<li class='rant navkey withoutfocus'>"+message.text+"</li>").fadeIn();
             //TODO: show decay in the rant color
+            //if it exceeds the limit, remove the last rant:
+            if($("#rants li").length > RANT_LIMIT){
+                _last = $("#rants :last");
+                _last.fadeOut();
+                _last.remove();
+            }
         });
     } //process data
 
@@ -53,7 +59,7 @@ $(function(){
 
     $("#rant-form").submit(function(e){
         e.preventDefault();
-        $.get('/rant',
+        $.post('/rant',
                $('#rant-form').serialize(),
                function(){$('#id_rant').val("").trigger('keyup');return false;},
                'json'

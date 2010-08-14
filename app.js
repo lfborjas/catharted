@@ -10,6 +10,8 @@ app.set('views', __dirname + '/templates');
 app.set('view engine', 'hamljs');
 // Serve statics from ./static
 app.use(connect.staticProvider(__dirname + '/static'));
+//decode forms:
+app.use(connect.bodyDecoder());
 
 //the number of messages we'll display before utterly forgetting
 var BACKLOG = 100;
@@ -25,6 +27,7 @@ var channel = new function () {
     //sanitize the message: strip it and delete any urls, then calculate md5 so it's unique
     if(!text){return;}
 	ctext= text
+        .trim()
         .replace(/((https?|ftp|gopher|telnet|file|notes|ms-help):((\/\/)|(\\\\))+[\w\d:#@%\/;$()~_?\+-=\\\.&]*)|(\s+)/g,' ')
         .substring(0, MESSAGE_LIMIT)
     
@@ -93,7 +96,7 @@ app.get('/rants', function(req,res){
 
 //TODO: for some reason, post keeps getting "undefined" when posted via ajax!
 //I could always use a "put"...
-app.get('/rant', function(req, res){
+app.post('/rant', function(req, res){
     var text = req.param('rant');
     channel.appendMessage(text);
     res.send({success: text != undefined});
