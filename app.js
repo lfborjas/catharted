@@ -23,9 +23,9 @@ var channel = new function () {
 
   this.appendMessage = function (text) {
     //sanitize the message: strip it and delete any urls, then calculate md5 so it's unique
+    if(!text){return;}
 	ctext= text
-        .strip
-        .replace(/((https?|ftp|gopher|telnet|file|notes|ms-help):((\/\/)|(\\\\))+[\w\d:#@%\/;$()~_?\+-=\\\.&]*)|(\s+)/g,'')
+        .replace(/((https?|ftp|gopher|telnet|file|notes|ms-help):((\/\/)|(\\\\))+[\w\d:#@%\/;$()~_?\+-=\\\.&]*)|(\s+)/g,' ')
         .substring(0, MESSAGE_LIMIT)
     
     var m = {text: ctext, timestamp: (new Date()).getTime()};
@@ -33,8 +33,9 @@ var channel = new function () {
     var hsh = ctext.md5;
     if(!messages.hasOwnProperty(hsh)){
         messages[hsh] = m;
+    }else{
+        return;
     }
-
     //if there are clients waiting for new messages, update that now
     while (callbacks.length > 0) {
       callbacks.shift().callback([m]);
@@ -47,7 +48,7 @@ var channel = new function () {
 
   this.query = function (since, callback) {
     var matching = [];
-    for (var i = 0; i < messages.length; i++) {
+    for (i in messages) {
       var message = messages[i];
       if (message.timestamp > since)
         matching.push(message)
@@ -88,6 +89,14 @@ app.get('/rants', function(req,res){
    channel.query(since, function (messages) {
         res.send({ messages: messages });
    });
+});
+
+//TODO: for some reason, post keeps getting "undefined" when posted via ajax!
+//I could always use a "put"...
+app.get('/rant', function(req, res){
+    var text = req.param('rant');
+    channel.appendMessage(text);
+    res.send({success: text != undefined});
 });
 
 app.listen(8000);

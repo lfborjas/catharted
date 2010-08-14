@@ -1,3 +1,5 @@
+var last_message_time = 1;
+
 function updateCounter(e){
     var _input = $('#id_rant');
     var _counter = $('#counter');
@@ -19,10 +21,42 @@ function updateCounter(e){
     return false;
 }
 
+function longPoll(data){
+    if(data && data.messages){
+        $.each(data.messages, function(index, message){
+            if(message.timestamp > last_message_time){
+                last_message_time = message.timestamp;
+            } 
+            $("#rants").prepend("<li class='rant navkey withoutfocus'>"+message.text+"</li>");
+            //TODO: show decay in the rant color
+        });
+    } //process data
+
+    //poll again
+    $.get(
+        "/rants",
+        {since: last_message_time},
+        function(data){
+            longPoll(data);
+        },
+        'json'
+    );
+} //longPoll
+
 $(function(){        
+    longPoll();
     $('#id_rant').bind('keyup',updateCounter);
     //HACK: set a timeout, waiting for the paste to update the content:
     $('#id_rant').bind('paste', function(e){
         setTimeout("updateCounter", 20);
+    });
+
+    $("#rant-form").submit(function(e){
+        e.preventDefault();
+        $.get('/rant',
+               $('#rant-form').serialize(),
+               function(){$('#id_rant').val("").trigger('keyup');return false;},
+               'json'
+        );
     });
 });

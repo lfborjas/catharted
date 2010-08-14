@@ -17,7 +17,7 @@
     %div#links
       %a{href: "/about"} About
   %div#main
-    %form{method: 'post'}
+    %form#rant-form{method: 'post'}
       %div#prompt
         %label{ for: "rant"} What's really on your mind? 
         %span#counter 280
@@ -26,16 +26,4 @@
         %input#send_rant{ type: 'submit', value: 'Gruff!' , disabled : "disabled"}
     %div#rant-container
       %ul#rants
-        %li.rant._1th.keynav.withoutfocus
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        %li.rant._30thy.keynav.withoutfocus
-          This is an 30th rant
-        %li.rant._50th.keynav.withoutfocus
-          This is an 50th rant
-        %li.rant._80th.keynav.withoutfocus
-          This is an 80th rant
-        %li.rant._100th.keynav.withoutfocus
-          This is an 100th rant
 
