@@ -4,6 +4,26 @@ var express = require('express');
 var connect = require('connect');
 var app = express.createServer();
 var sys = require('sys');
+
+//handle errors
+/*function NotFound(msg){
+    this.name="Not Found";
+    Error.call(this, msg);
+    Error.captureStackTrace(this, arguments.callee);
+}
+sys.inherits(NotFound, Error);
+app.error(function(err, req, res, next){
+    if (err instanceof NotFound) {
+         res.render('404', {layout: false});
+    } else {
+         next(err);
+    }
+});
+
+app.error(function(err, req, res ){
+    res.render('500', {layout: false});
+});*/
+
 //expose views:
 app.set('views', __dirname + '/templates');
 //set the app to use hamljs

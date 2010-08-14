@@ -11,7 +11,7 @@ $decayFactor: 0.65;
 
 body{
     font-family: Verdana, Helvetica, "Lucida Grande", Arial, sans-serif;
-    font-size: 1.2em;
+    font-size: 1em;
     background: $background url(/images/fine_grain.png) repeat 50% 50%;
     text-shadow: 1px 1px 0px $background;
 }
@@ -158,11 +158,13 @@ label{
 
 #rants{
     list-style-type: none;
+    width: 100%;
 }
 
 .rant {
-    border-bottom: 1px inset lighten($tertiary, 0.5);
+    border-bottom: 1px inset lighten($tertiary, 0.9);
     padding-top: 5px;
+    padding-bottom: 5px;
     text-align: justify;
     padding-left: -20px;
     width: 100%;
