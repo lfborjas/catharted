@@ -8,7 +8,7 @@
     %link{ 'rel' : "icon", 'href': "/images/favicon.ico", 'type': "image/x-icon" }
     %link{"rel" : "stylesheet", "type": "text/css", "href" : "/stylesheets/base.css", "media" : "screen" }
     %script{type: "text/javascript",src: "/scripts/jquery.js"}
-    %script{type: "text/javascript",src: "/scripts/client.dev.js"}
+    %script{type: "text/javascript",src: "/scripts/client.js"}
   %body
     %div#topmenu
       %div#branding
