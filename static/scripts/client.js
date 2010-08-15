@@ -34,14 +34,8 @@ function longPoll(data){
             if(message.timestamp > last_message_time){
                 last_message_time = message.timestamp;
             } 
-            $("<li class='rant navkey withoutfocus'>"+strip(message.text)+"</li>").fadeIn().prependTo('#rants');
-            //TODO: show decay in the rant color
-            //if it exceeds the limit, remove the last rant:
-            if($("#rants li").length > RANT_LIMIT){
-               $("#rants :last").fadeOut(1000, function(){
-                    $(this).remove();
-               });
-            }
+            $("<li class='rant'>"+strip(message.text)+"</li>").fadeIn().prependTo('#rants');
+
         });
     } //process data
 
@@ -51,6 +45,17 @@ function longPoll(data){
         {since: last_message_time},
         function(data){
             longPoll(data);
+            $(".rant").slice(0,40).addClass('toddler');
+            $(".rant").slice(40,80).addClass('kid');
+            $(".rant").slice(80,120).addClass('pubert');
+            $(".rant").slice(120,160).addClass('adult');
+            $(".rant").slice(160,2000).addClass('senior');
+            //if it exceeds the limit, remove the last rant:
+            if($("#rants li").length > RANT_LIMIT){
+               $("#rants :last").fadeOut(1000, function(){
+                    $(this).remove();
+               });
+            }
         },
         'json'
     );
