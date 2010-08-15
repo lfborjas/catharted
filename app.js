@@ -1,28 +1,10 @@
 require('ext');
-Object.merge(global, require('ext'))
+Object.merge(global, require('ext'));
 var express = require('express');
 var connect = require('connect');
 var app = express.createServer();
 var sys = require('sys');
 
-//handle errors
-/*function NotFound(msg){
-    this.name="Not Found";
-    Error.call(this, msg);
-    Error.captureStackTrace(this, arguments.callee);
-}
-sys.inherits(NotFound, Error);
-app.error(function(err, req, res, next){
-    if (err instanceof NotFound) {
-         res.render('404', {layout: false});
-    } else {
-         next(err);
-    }
-});
-
-app.error(function(err, req, res ){
-    res.render('500', {layout: false});
-});*/
 
 //expose views:
 app.set('views', __dirname + '/templates');
@@ -34,7 +16,7 @@ app.use(connect.staticProvider(__dirname + '/static'));
 app.use(connect.bodyDecoder());
 
 //the number of messages we'll display before utterly forgetting
-var BACKLOG = 100;
+var BACKLOG = 200;
 //the limit length of a message
 var MESSAGE_LIMIT = 280;
 
@@ -49,7 +31,7 @@ var channel = new function () {
 	ctext= text
         .trim()
         .replace(/((https?|ftp|gopher|telnet|file|notes|ms-help):((\/\/)|(\\\\))+[\w\d:#@%\/;$()~_?\+-=\\\.&]*)|(\s+)/g,' ')
-        .substring(0, MESSAGE_LIMIT)
+        .substring(0, MESSAGE_LIMIT);
     
     var m = {text: ctext, timestamp: (new Date()).getTime()};
     //don't add duplicates:
@@ -65,19 +47,21 @@ var channel = new function () {
     }
     
     //if it exceeds the backlog length, shift (delete the first)
-    while (messages.length > BACKLOG)
+    while (messages.length > BACKLOG){
       messages.shift();
+    }
   };
 
   this.query = function (since, callback) {
     var matching = [];
     for (i in messages) {
       var message = messages[i];
-      if (message.timestamp > since)
-        matching.push(message)
+      if (message.timestamp > since){
+        matching.push(message);
+      }
     }
 
-    if (matching.length != 0) {
+    if (matching.length !== 0) {
       callback(matching);
     } else {
       callbacks.push({ timestamp: new Date(), callback: callback });
@@ -95,6 +79,7 @@ var channel = new function () {
 };
 
 //controller definition
+
 app.get('/', function(req,res){
     res.render('index', {layout: false});
 });
@@ -103,9 +88,6 @@ app.get('/about', function(req,res){
     res.render('about', {layout: false});
 });
 
-/*app.get('/feedback', function(req,res){
-    res.render('feedback', {layout: false});
-});*/
 //ajax function: get latest rants
 app.get('/rants', function(req,res){
    var since = req.param('since');
@@ -114,13 +96,15 @@ app.get('/rants', function(req,res){
    });
 });
 
-//TODO: for some reason, post keeps getting "undefined" when posted via ajax!
 //I could always use a "put"...
 app.post('/rant', function(req, res){
     var text = req.param('rant');
     channel.appendMessage(text);
-    res.send({success: text != undefined});
+    res.send({success: text !== undefined});
 });
 
+//handle errors
+app.error(function(err, req, res ){
+    res.render('500', {layout: false, locals: {error: err }});
+});
 app.listen(8000);
-//TODO: a POST for rants, so people can rant via API

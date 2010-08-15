@@ -1,5 +1,5 @@
 var last_message_time = 1;
-var RANT_LIMIT = 100;
+var RANT_LIMIT = 200;
 function updateCounter(e){
     var _input = $('#id_rant');
     var _counter = $('#counter');
@@ -21,13 +21,20 @@ function updateCounter(e){
     return false;
 }
 
+function strip(html)
+{
+   var tmp = document.createElement("DIV");
+   tmp.innerHTML = html;
+   return tmp.textContent||tmp.innerText;
+}
+
 function longPoll(data){
     if(data && data.messages){
         $.each(data.messages, function(index, message){
             if(message.timestamp > last_message_time){
                 last_message_time = message.timestamp;
             } 
-            $("<li class='rant navkey withoutfocus'>"+message.text+"</li>").fadeIn().prependTo('#rants');
+            $("<li class='rant navkey withoutfocus'>"+strip(message.text)+"</li>").fadeIn().prependTo('#rants');
             //TODO: show decay in the rant color
             //if it exceeds the limit, remove the last rant:
             if($("#rants li").length > RANT_LIMIT){
@@ -54,7 +61,7 @@ $(function(){
     $('#id_rant').bind('keyup',updateCounter);
     //HACK: set a timeout, waiting for the paste to update the content:
     $('#id_rant').bind('paste', function(e){
-        setTimeout("updateCounter", 20);
+        setTimeout(updateCounter, 20);
     });
 
     $("#rant-form").submit(function(e){

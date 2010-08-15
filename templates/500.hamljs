@@ -4,25 +4,19 @@
     %meta{'http-equiv': "Content-Type", 'content': "text/html;charset=UTF-8"}
     %meta{'http-equiv':"Content-Style-Type", 'content' : "text/css" }
     %meta{'name': "description", "content": "Get some catharsis: completely anonymous. Completely oblivious. Say what you want"}
-    %title Catharted info: get it off your chest with no regrets 
+    %title Error: Catharted info: get it off your chest with no regrets 
     %link{ 'rel' : "icon", 'href': "/images/favicon.ico", 'type': "image/x-icon" }
     %link{"rel" : "stylesheet", "type": "text/css", "href" : "/stylesheets/base.css", "media" : "screen" }
-    %script{type: "text/javascript",src: "/scripts/jquery.js"}
-    %script{type: "text/javascript",src: "/scripts/client.dev.js"}
   %body
     %div#topmenu
       %div#branding
         %h1 Catharted info
       %div#links
-        %a{href: "/about"} About
+        %a{href: "/"} Home 
     %div#main
-      %form#rant-form{method: 'post', action: "/rant"}
-        %div#prompt
-          %label{ for: "id_rant"} What's really on your mind? 
-          %span#counter 280
-        %textarea#id_rant{cols: 40, rows: 3, name: "rant"}
-        %div#controls
-          %input#send_rant{ type: 'submit', value: 'Gruff!' , disabled : "disabled"}
-      %div#rant-container
-        %ul#rants
-
+      %h2.error_title Sorry to interrupt the ranting, but we've had a problem
+      %p.error Oh no. It seems like one of the frantic monkeys running this site with fax machines got the hiccups! Don't worry, though, those guys are pros, it'll be OK shortly.
+      %p.error Or you can go rant about it to the creator's page. Paste the error message below to let him figure out what the hell happened:
+      %pre
+        =error.message
+      %a{href: "http://github.com/lfborjas/catharted/issues", target: "_blank"} Project Page

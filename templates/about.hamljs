@@ -1,30 +1,41 @@
 !!!
 %html{'xmlns': "http://www.w3.org/1999/xhtml", 'xml:lang': "en", 'lang': "en"}
-%head
-  %meta{'http-equiv': "Content-Type", 'content': "text/html;charset=UTF-8"}
-  %meta{'http-equiv':"Content-Style-Type", 'content' : "text/css" }
-  %meta{'name': "description", "content": "Get some catharsis: completely anonymous. Completely oblivious. Say what you want"}
-  %title About: Catharted info: get it off your chest with no regrets 
-  %link{ 'rel' : "icon", 'href': "/images/favicon.ico", 'type': "image/x-icon" }
-  %link{"rel" : "stylesheet", "type": "text/css", "href" : "/stylesheets/base.css", "media" : "screen" }
-%body
-  %div#topmenu
-    %div#branding
-      %h1 Catharted info
-    %div#links
-      %a{href: "/"} Home
-  %div#main
-    %h2 Because words were meant to be carried away by the wind.
-    %p.about
-      Catharted info is a place created for you to say those things you can't say in twitter or facebook
-      or wherever. Here you can say what's really on your mind and also read what other people are bluntly saying.
-    %p.about
-      It's completely anonymous, and only the last 100 rants will be displayed in the page. Once that limit is
-      reached, old gruffs will be discarded and lost forever. You have 280 characters, don't bother wasting
-      them with urls: they will be supressed. Also, to avoid flooding the timeline with lots of the same, duplicated
-      rants will be eliminated as well.
-    %p.about
-      So there you have it: a place where you can come
-      and scream and maybe even forget your problems while you read what others say and no one will ever hold it against
-      you.
+  %head
+    %meta{'http-equiv': "Content-Type", 'content': "text/html;charset=UTF-8"}
+    %meta{'http-equiv':"Content-Style-Type", 'content' : "text/css" }
+    %meta{'name': "description", "content": "Get some catharsis: completely anonymous. Completely oblivious. Say what you want"}
+    %title About: Catharted info: get it off your chest with no regrets 
+    %link{ 'rel' : "icon", 'href': "/images/favicon.ico", 'type': "image/x-icon" }
+    %link{"rel" : "stylesheet", "type": "text/css", "href" : "/stylesheets/base.css", "media" : "screen" }
+  %body
+    %div#topmenu
+      %div#branding
+        %h1 Catharted info
+      %div#links
+        %a{href: "/"} Home
+    %div#main
+      %h2 Because words were meant to be carried away by the wind.
+      %p.about
+        Catharted info is a place created for you to say those things you can't say in twitter or facebook
+        or wherever. Here you can say what's really on your mind and also read what other people are bluntly saying.
+      %p.about
+        It's completely anonymous, and only the last 200 rants will be stored at the site. Once that limit is
+        reached, old gruffs will be discarded and lost forever. You have 280 characters, don't bother wasting
+        them with urls: they will be supressed. Also, to avoid flooding the timeline with lots of the same, duplicated
+        rants will be eliminated as well.
+      %p.about
+        So there you have it: a place where you can come
+        and scream and maybe even forget your problems while you read what others say and no one will ever hold it against
+        you.
+      %p.geeks
+        For the geeks out there, this is an open source experiment on
+        %a{href: "http://nodejs.org/", target: "_blank"} Node JS 
+        &nbsp; written with the aid of
+        %a{href: "http://expressjs.com", target: "_blank"} The express.js framework 
+        &nbsp; with the pages created with
+        %a{href: "http://github.com/visionmedia/haml.js", target: "_blank"} Haml JS 
+        &nbsp; and sassy stylesheets courtesy of
+        %a{href: "http://sass-lang.com/", target: "_blank"} Sass 
+        &nbsp; All the code can be found in
+        %a{href: "http://github.com/lfborjas/catharted", target: "_blank"} The github repository.
 
