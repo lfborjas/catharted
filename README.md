@@ -5,6 +5,8 @@ An experiment on node.js and minimalistic programming (trying to use only the ne
 
 Just write a 280 character rant and it will go away after a while. Full anonymity. Have some fun with the rants of other people. 
 
+I kinda let this die, if you like it, fork it!
+
 Dependencies for production
 ---------------------------
 * expressjs (`npm install expressjs`) : the development framework
